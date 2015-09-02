@@ -48,7 +48,6 @@
               </script>
             </div>
          </aside>
-
          {{!-- Tags --}}
          {{#if tags}}<p class="tags">More: {{tags}}</p>{{/if}}
        </section>
@@ -82,9 +81,18 @@
     {{!-- Add Comments --}}
     <div id="comments"class="comments">
       <div class="card-content">
-        <div class="Comments-all">
-          <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%" data-numposts="10" data-colorscheme="light"></div>
-        </div>
+        {{!-- disqus Comments --}}
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'godofredoninja';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
       </div>
     </div>
 

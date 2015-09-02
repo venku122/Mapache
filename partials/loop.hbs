@@ -23,7 +23,7 @@
             <p class="ps-excerpt show-on-small-screen">{{excerpt characters="260"}}... <a class="read-more" href="{{url}}">Read More</a></p>
             {{!-- Share Post --}}
             <aside class="share show-on-small-screen">
-              <a class="btn btn-flat ps-comment" href="{{url absolute="true"}}#comments"><i class="fa fa-comments"></i><span class="ps-comment-count fb-comments-count" data-href="{{url absolute="true"}}"></span></a>
+              <a class="btn btn-flat ps-comment" href="{{url absolute="true"}}#disqus_thread"><i class="fa fa-comments"></i><span class="ps-comment-count disqus-comment-count" data-disqus-url="{{url absolute="true"}}"></span></a>
               <a class="btn btn-flat bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i></a>
               <a class="btn btn-flat bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i></a>
               <a class="btn btn-flat bg-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="fa fa-linkedin"></i></a>
