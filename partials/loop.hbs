@@ -5,7 +5,7 @@
       {{#foreach posts}}
       <div class="ps">
         {{!-- Post Loop Content --}}
-        <article class="ps-inner">
+        <article class="ps-inner {{#if featured}}featured{{/if}}">
           {{!-- Tags --}}
           {{#if tags}}<div class="ps-tags show-on-small-screen">{{#foreach tags}}<a href="{{url}}" class="btn btn-flat" title={{name}}>{{name}}</a>{{/foreach}}</div>{{/if}}
           {{!-- post content --}}
@@ -15,7 +15,7 @@
             {{!-- post Title --}}
             <a class="ps-title" href="{{url}}"><h2>{{title}}</h2></a>
             {{!-- post author & datetime--}}
-            <div class="byline">
+            <div class="ps-byline">
               <time class="timestamp" datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>
               by {{#author}}<a href="{{url}}" title="{{name}}" class="author">{{name}}</a>{{/author}}
             </div>
@@ -28,6 +28,7 @@
               <a class="btn btn-flat bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i></a>
               <a class="btn btn-flat bg-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="fa fa-linkedin"></i></a>
             </aside>
+
           </div>
         </article>
       </div>

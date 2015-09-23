@@ -5,11 +5,25 @@
   <div class="main-wrap">
     {{!-- Post Content --}}
     <article class="post">
-      <header class="post-header clear">
+
+      {{!-- Add Author date --}}
+      <div class="post-author">
+        <div class="post-author-wrap">
+          {{!-- Add Auhor --}}
+          {{#author}}
+          {{!--Author avatar --}}
+          <a href="{{url}}" class="post-author-avatar"><img src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" /> </a>
+          {{!--Author name --}}
+          <a class="post-author-name" href="{{url}}">By {{name}}</a>
+          {{/author}}
+          {{!-- Published time --}}
+          <div class="post-author-date">Published: <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
+        </div>
+      </div>
+      {{!-- content post --}}
+      <section class="post-main">
         {{!-- Title Post --}}
         <h1 class="post-title">{{title}}</h1>
-        {{!-- Autor Tags --}}
-        <div class="byline">Publicado <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time>  por {{#author}}<a href="{{url}}">{{name}}</a>{{/author}}</div>
         {{!-- Follow --}}
         <aside class="follow show-on-small-screen">
           <span class="texto">¡Sígueme!</span>
@@ -19,11 +33,8 @@
         </aside>
         {{!-- Add Cover Img Post --}}
         {{#if image}}<img src="{{image}}" alt="{{title}}" class="post-img"/>{{/if}}
-      </header>
-      {{!-- content post --}}
-      <section class="post-main clear">
-         {{content}}
-         <!-- ADS -->
+        {{content}}
+        <!-- ADS -->
          <aside class="Ads">
             <div class="Ads-content">
               <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -48,35 +59,16 @@
               </script>
             </div>
          </aside>
-         {{!-- Tags --}}
-         {{#if tags}}<p class="tags">More: {{tags}}</p>{{/if}}
+        {{!-- Tags --}}
+        {{#if tags}}<p class="tags">More: {{tags}}</p>{{/if}}
+        {{!-- Post Share --}}
+        <aside class="share">
+          <a class="btn bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i> <span>Facebook</span></a>
+          <a class="btn bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i> <span>Twitter</span></a>
+          <a class="btn bg-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="fa fa-linkedin"></i> <span>Linkedin</span></a>
+        </aside>
        </section>
-      {{!-- Post Share --}}
-      <aside class="share">
-        <a class="btn bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i> <span>Compartir</span></a>
-        <a class="btn bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i> <span>Twittear</span></a>
-        <a class="btn bg-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="fa fa-linkedin"></i> <span>Compartir</span></a>
-      </aside>
     </article>
-
-    {{!-- Add Auhor --}}
-    {{#author}}
-    <div class="post-author">
-      {{!-- Add Auhor --}}
-      <a href="{{url}}" class="avatar"><img src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" /> </a>
-
-      <div class="author-content">
-        {{!-- Add Name Author --}}
-        <a class="author-name" href="{{url}}">{{name}}</a>
-        {{!-- biography of the author --}}
-        {{#if bio}}<p>{{bio}}</p>{{/if}}
-        <p class="meta">
-          {{#if location}}<span><i class="fa fa-map-marker"></i> {{location}}</span>{{/if}}
-          {{#if website}} <span><a href="{{website}}"><i class="fa fa-globe"></i> WebSite</a></span> {{/if}}
-        </p>
-      </div>
-    </div>
-    {{/author}}
 
     {{!-- Add Comments --}}
     <div id="comments"class="comments">
@@ -92,7 +84,6 @@
           })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
       </div>
     </div>
 
