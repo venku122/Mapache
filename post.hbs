@@ -1,94 +1,80 @@
 {{!-- Add Layout --}}
 {{!< default}}
 {{#post}}
-<main class="full-site-width">
-  <div class="main-wrap">
-    {{!-- Post Content --}}
-    <article class="post">
-
-      {{!-- Add Author date --}}
-      <div class="post-author">
-        <div class="post-author-wrap">
-          {{!-- Add Auhor --}}
+<main class="main">
+  <section class="main-wrap full-site-width" style="padding-top:64px">
+    <div class="main-post">
+      {{!-- Post Content --}}
+      <article class="post">
+        {{!-- Add Author date --}}
+        <div class="post-author">
           {{#author}}
           {{!--Author avatar --}}
           <a href="{{url}}" class="post-author-avatar"><img src="{{#if image}}{{image}}{{else}}{{asset "img/user-image.png"}}{{/if}}" alt="{{name}}" /> </a>
-          {{!--Author name --}}
-          <a class="post-author-name" href="{{url}}">By {{name}}</a>
+          <div class="post-author-right">
+            {{!--Author name --}}
+            <a class="post-author-name" href="{{url}}">Por {{name}}</a>
           {{/author}}
-          {{!-- Published time --}}
-          <div class="post-author-date">Published: <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
+            {{!-- Published time --}}
+            <div class="post-author-date"><span>Publicado: </span><time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time></div>
+          </div>
+        </div>
+        {{!-- content post --}}
+        <div class="post-main">
+          {{!-- Title Post --}}
+          <h1 class="post-title">{{title}}</h1>
+          {{!-- Follow --}}
+          <aside class="follow hidden-on-small-screen">
+            <span class="texto">¡Sígueme!</span>
+            <span class="fb"><div class="fb-like" data-href="https://www.facebook.com/godofredo.io" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></span>
+            <span class="tw"><a href="https://twitter.com/GodoFredoNinja" class="twitter-follow-button" data-show-count="true" data-lang="es" data-show-screen-name="false" data-dnt="true">Seguir a @GodoFredoNinja</a></span>
+            <span class="yt"><div class="g-ytsubscribe" data-channelid="UCvG7YDFE69L6XCyfyUOlq4A" data-layout="default" data-count="undefined"></div></span>
+          </aside>
+          {{!-- Add Cover Img Post --}}
+          {{#if image}}<img src="{{image}}" alt="{{title}}" class="post-img"/>{{/if}}
+          {{content}}
+          <!-- ADS -->
+          <aside class="Ads">
+             <div class="Ads-content">
+               <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+               <!-- Ads_post_bottom_left -->
+               <ins class="adsbygoogle"
+                    style="display:inline-block;width:300px;height:250px"
+                    data-ad-client="ca-pub-3462564966072994"
+                    data-ad-slot="7045030061"></ins>
+               <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+               </script>
+             </div>
+             <div class="Ads-content">
+               <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+               <!-- Ads_post_bottom_right -->
+               <ins class="adsbygoogle"
+                    style="display:inline-block;width:300px;height:250px"
+                    data-ad-client="ca-pub-3462564966072994"
+                    data-ad-slot="8521763268"></ins>
+               <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+               </script>
+             </div>
+          </aside>
+          {{!-- Post Share --}}
+          <aside class="share">
+            <a class="btn bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="icon-facebook"></i> <span>Facebook</span></a>
+            <a class="btn bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="icon-twitter"></i> <span>Twitter</span></a>
+            <a class="btn bg-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="icon-linkedin"></i> <span>Linkedin</span></a>
+          </aside>
+        </div>
+      </article>
+      {{!-- Add Comments --}}
+      <div id="comments"class="comments">
+        <div class="card-content">
+          <div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%"  data-numposts="10"></div>
         </div>
       </div>
-      {{!-- content post --}}
-      <section class="post-main">
-        {{!-- Title Post --}}
-        <h1 class="post-title">{{title}}</h1>
-        {{!-- Follow --}}
-        <aside class="follow show-on-small-screen">
-          <span class="texto">¡Sígueme!</span>
-          <span class="fb"><div class="fb-like" data-href="https://www.facebook.com/godofredo.ninja" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></span>
-          <span class="tw"><a href="https://twitter.com/GodoFredoNinja" class="twitter-follow-button" data-show-count="true" data-lang="es" data-show-screen-name="false" data-dnt="true">Seguir a @GodoFredoNinja</a></span>
-          <span class="yt"><div class="g-ytsubscribe" data-channelid="UCvG7YDFE69L6XCyfyUOlq4A" data-layout="default" data-count="undefined"></div></span>
-        </aside>
-        {{!-- Add Cover Img Post --}}
-        {{#if image}}<img src="{{image}}" alt="{{title}}" class="post-img"/>{{/if}}
-        {{content}}
-        <!-- ADS -->
-         <aside class="Ads">
-            <div class="Ads-content">
-              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-              <!-- Ads_post_bottom_left -->
-              <ins class="adsbygoogle"
-                   style="display:inline-block;width:300px;height:250px"
-                   data-ad-client="ca-pub-3462564966072994"
-                   data-ad-slot="7045030061"></ins>
-              <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-              </script>
-            </div>
-            <div class="Ads-content">
-              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-              <!-- Ads_post_bottom_right -->
-              <ins class="adsbygoogle"
-                   style="display:inline-block;width:300px;height:250px"
-                   data-ad-client="ca-pub-3462564966072994"
-                   data-ad-slot="8521763268"></ins>
-              <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-              </script>
-            </div>
-         </aside>
-        {{!-- Tags --}}
-        {{#if tags}}<p class="tags">More: {{tags}}</p>{{/if}}
-        {{!-- Post Share --}}
-        <aside class="share">
-          <a class="btn bg-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i> <span>Facebook</span></a>
-          <a class="btn bg-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i> <span>Twitter</span></a>
-          <a class="btn bg-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;"><i class="fa fa-linkedin"></i> <span>Linkedin</span></a>
-        </aside>
-       </section>
-    </article>
-
-    {{!-- Add Comments --}}
-    <div id="comments"class="comments">
-      <div class="card-content">
-        {{!-- disqus Comments --}}
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-          var disqus_shortname = 'godofredoninja';
-          (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-      </div>
     </div>
-
-  </div>
-  {{!-- Add Sidebar --}}
-  {{> "sidebar"}}
+    {{!-- Add Sidebar --}}
+    {{> "sidebar"}}
+  </section>
 </main>
 {{/post}}
