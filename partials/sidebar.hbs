@@ -1,6 +1,17 @@
 {{!-- Sidebar right --}}
 <div id="sidebar" class="col s12 sidebar u-h-b-lg">
 
+	{{#is "home, tag, author"}}
+	<div class="widget">
+		<!-- Ad_sidebar_top -->
+		<ins class="adsbygoogle"
+			 style="display:block"
+			 data-ad-client="ca-pub-3462564966072994"
+			 data-ad-slot="5686648064"
+			 data-ad-format="auto"></ins>
+	</div>
+	{{/is}}
+
 	{{!-- 5 articles featured in page (home - author - tag) --}}
 	{{#is "home"}}
 		{{#get "posts" filter="featured:true" limit="5" as |featured|}}
@@ -16,5 +27,15 @@
 	{{/is}}
 
 	{{!-- Add your content here --}}
+	<div class="sidebar-items widget">
+		<div class="fixed">
+			<!-- Ad_sidebar_fixed -->
+			<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-3462564966072994"
+				 data-ad-slot="7163381267"
+				 data-ad-format="auto"></ins>
+		</div>
+	</div>
 
 </div>

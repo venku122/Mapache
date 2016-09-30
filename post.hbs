@@ -30,6 +30,10 @@
 			<div class="col s12 content">
 				{{!-- Article content  --}}
 				<article class="post">
+
+					{{!-- Ads post header --}}
+					{{> ad-post-header}}
+
 					<header class="post-header">
 						<h1 class="post-title">{{title}}</h1>
 
@@ -63,6 +67,9 @@
 						{{> widget-share}}
 						{{> widget-newsletter}}
 					</div>
+
+					{{!-- Ad post footer --}}
+					{{> ad-post-footer}}
 
 					{{!-- Post author info --}}
 					{{> widget-post-author}}
