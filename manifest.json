@@ -1,0 +1,8 @@
+{
+  "name": "SPEXcast Blog",
+  "short_name": "SPEXcast",
+  "start_url": "/",
+  "theme_color": "#4285f4",
+  "background_color": "#000",
+  "display": "standalone"
+}
