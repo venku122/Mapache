@@ -1,42 +1,52 @@
-{{!-- Add Layout --}}
-
 {{!< default}}
 
 {{#author}}
-<section id="cover" class="cover author u-flex-wrap">
-    {{!-- Image featured --}}
-    {{#if cover_image}}
-        <div class="u-absolute0 u-block u-bg-gradient" style="background-color:#000"></div>
-        <div class="cover-background cover-lazy u-absolute0 u-bg-cover u-block" style="opacity:0.5" data-original="{{cover_image}}"></div>
-    {{/if}}
 
-    <article class="cover-wrap u-flex-aling-center">
-        <div class="author-header">
-            <div  class="author-avatar animated bounceInDown u-not-avatar" {{#if profile_image}}style="background-image:url({{profile_image}})"{{/if}} alt="{{name}}"> </div>
-            <div class="author-name-wrap animated bounceIn">
-                <span class="author-title">{{t "Author"}}</span>
-                <h1 class="author-name">{{name}}</h1>
+{{!-- custom Styles For tag <body> --}}
+{{#contentFor "mapache_class_body"}}is-author{{/contentFor}}
+{{#contentFor "mapache_class_site_main"}}pb4{{/contentFor}}
+
+<section class="author extreme-container u-marginBottom40">
+    <div class="author-inner u-flex u-flexCenter">
+        <div class="author-left">
+            {{!-- Avatar --}}
+            <figure  class="author-avatar u-relative">
+                <img class="u-absolute u-image u-block u-round" src="{{#if profile_image}}{{img_url profile_image size="s"}}{{else}}{{asset "images/avatar.png"}}{{/if}}" alt="{{name}}"/>
+            </figure>
+        </div>
+
+        <div class="author-right">
+            {{!-- Name --}}
+            <h1 class="author-name u-fontSizeLargest u-md-fontSizeLarger u-marginBottom15">{{name}}</h1>
+
+            {{!-- Biography --}}
+            {{#if bio}}<p class="author-bio u-marginAuto u-marginBottom15">{{bio}}</p>{{/if}}
+
+            {{!-- Location - website - RSS --}}
+            <div class="author-meta u-marginBottom15">
+                {{#if location}}<span> {{> "icons/map"}} {{location}}</span>{{/if}}
+                {{#if website}}<span><a href="{{website}}" target="_blank"><svg class="icon top2"><use xlink:href="#icon-link"></use></svg> {{website}}</a></span>{{/if}}
+            </div>
+
+            {{!-- Facebook and Twitter --}}
+            <div class="author-follow buttonSet">
+                {{#if facebook}}<a class="button u-borderRadius2 u-fontSizeSmall fb" href="{{facebook_url}}" title="Facebook" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-facebook"></use></svg> Facebook</a>{{/if}}
+                {{#if twitter}}<a class="button u-borderRadius2 u-fontSizeSmall tw" href="{{twitter_url}}" title="{{twitter}}" target="_blank" rel="noopener noreferrer"><svg class="icon"><use xlink:href="#icon-twitter"></use></svg> Twitter</a>{{/if}}
+                <a class="button u-borderRadius2 u-fontSizeSmall rs" href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon"><use xlink:href="#icon-rss"></use></svg>
+                    {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}
+                </a>
             </div>
         </div>
+    </div>
 
-        {{#if bio}}<p class="author-bio" itemprop="description">{{bio}}</p>{{/if}}
-
-        <div class="author-meta">
-            {{#if location}}<span class="author-location"><i class="i-flag"></i> {{location}}</span>{{/if}}
-            {{#if website}}<span class="author-link"><i class="i-link"></i> <a href="{{website}}">{{website}}</a></span>{{/if}}
-            <span class="author-stats"><i class="i-feed"></i> {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</span>
-        </div>
-
-        {{!-- Author location website --}}
-        <div class="author-follow">
-            {{#if facebook}}<a href="{{facebook_url}}" title="Facebook" target="_blank"><i class="i-facebook"></i> Facebook</a>{{/if}}
-            {{#if twitter}}<a href="{{twitter_url}}" title="{{twitter}}" target="_blank"><i class="i-twitter"></i> Twitter</a>{{/if}}
-        </div>
-    </article>
-
-    <a href="#ScrollBody" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
+    <div class="title-line u-marginBottom30">
+            <span class="u-oblique">{{t "Stories by"}} {{name}}</span>
+    </div>
 </section>
-{{/author}}
 
-{{!-- Add Loop --}}
-{{> "loop"}}
+{{/author}}
+<section class="extreme-container">
+    {{!-- The tag below includes the post loop - partials/loop.hbs --}}
+    {{>"loop"}}
+</section>

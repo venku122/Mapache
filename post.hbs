@@ -1,22 +1,30 @@
 {{!-- Layout --}}
-{{!< layout-article }}
+{{!< default }}
 
-<div class="row">
-    <div class="col s12 content">
+{{#contentFor "mapache_class_body"}}is-article{{/contentFor}}
 
-    {{#post}}
-        {{!-- Block Featured Image --}}
-        {{#contentFor "mapache_feature_image"}}
-            {{#if feature_image}}<figure class="post-image"><img class="post-img" src="{{feature_image}}" alt="{{title}}"/></figure>{{/if}}
-        {{/contentFor}}
-    {{/post}}
+<div class="post extreme-container u-marginTop30 u-marginBottom40">
+    <div class="row">
+        {{#post}}
+        <article class="col col-left">
+            {{!-- Article Header - partials/article/article-header.hbs --}}
+            {{> "article/article-header"}}
 
-        {{!-- Article Content  --}}
-        {{> "article"}}
+            {{!-- Article Author - partials/article/article-author.hbs --}}
+            {{> "article/article-author"}}
 
+            {{!-- Article Image - partials/helper/helper-article-image.hbs --}}
+            {{> "helper/helper-article-image"}}
+
+            {{!-- Article Content - partials/article/article-body.hbs --}}
+            {{> "article/article-body"}}
+        </article>
+        {{/post}}
+
+        {{!-- Sidebar - partials/sidebar.hbs --}}
+        {{> "sidebar"}}
     </div>
-
-    {{!-- Sidebar --}}
-    {{> "sidebar" }}
 </div>
 
+{{!-- Related Articles - partials/article/article-related.hbs --}}
+{{> "article/article-related"}}

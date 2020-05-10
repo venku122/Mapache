@@ -1,0 +1,31 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{#contentFor "mapache_class_body"}}is-article{{/contentFor}}
+
+<section class="post extreme-container u-marginTop30 u-marginBottom40">
+    <article class="row">
+        {{#post}}
+        <header class="col s12">
+            {{!-- Article Header - partials/article/article-header.hbs --}}
+            {{> "article/article-header"}}
+
+            {{!-- Article Author - partials/article/article-author.hbs --}}
+            {{> "article/article-author"}}
+        </header>
+        <div class="col col-left">
+            {{!-- Post Image - partials/helper/helper-article-image.hbs --}}
+            {{> "helper/helper-article-image"}}
+
+            {{!-- Article Content - partials/article/article-body.hbs --}}
+            {{> "article/article-body"}}
+        </div>
+        {{/post}}
+
+        {{!-- Sidebar - partials/sidebar.hbs --}}
+        {{> "sidebar"}}
+    </article>
+</section>
+
+{{!-- Comments partials/article/article-related.hbs --}}
+{{> "article/article-related"}}

@@ -1,0 +1,20 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{#contentFor "mapache_class_body"}}is-article is-article-single share-margin has-cover is-transparency{{/contentFor}}
+
+{{#post}}
+{{!-- Article Header Cover - partials/article/article-header-cover.hbs --}}
+{{> "article/article-header-cover"}}
+
+<div class="post u-maxWidth740 u-container u-marginAuto u-marginTop30 u-marginBottom40">
+    {{!-- Article Author - partials/article/article-author.hbs --}}
+    {{> "article/article-author"}}
+
+    {{!-- Article Content - partials/article/article-body.hbs --}}
+    {{> "article/article-body"}}
+</div>
+{{/post}}
+
+{{!-- Related Articles - partials/article/article-related.hbs --}}
+{{> "article/article-related"}}

@@ -1,0 +1,48 @@
+{{!-- Layout --}}
+{{!< default }}
+
+{{#contentFor "mapache_class_body"}}is-article is-video share-margin has-cover is-transparency{{/contentFor}}
+
+{{#post}}
+<div class="cc-video u-overflowHidden u-relative">
+    <div class="post-fluid u-container">
+        <div class="row">
+            <div class="col s12 l8 cc-video-left">
+                <div class="cc-video-cont">
+                    {{!-- Video Embed --}}
+                    <div class="cc-video-embed">
+                        <span class="cc-video-close button button--circle button--dark"><svg class="icon"><use xlink:href="#icon-close"></use></svg> </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l4 cc-video-right">
+                <div class="cc-video-header">
+                    {{#if primary_tag}}{{#primary_tag}}<div class="post-primary-tag u-marginBottom15"><a href="{{url}}" title="{{name}}" class="u-oblique">{{name}}</a></div>{{/primary_tag}}{{/if}}
+                    <h1 class="cc-video-title u-md-fontSizeLarger u-fontSizeLarger u-lineHeightTight u-textColorWhite">{{title}}</h1>
+                    {{#if custom_excerpt}}<p class="cc-video-excerpt u-fontSizeBase u-paddingTop15">{{custom_excerpt}}</p>{{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/post}}
+
+<div class="post js-video-post extreme-container u-marginTop30 u-marginBottom40">
+    <div class="row">
+        {{#post}}
+        <div class="col col-left">
+            {{!-- Article Author - partials/article/article-author.hbs --}}
+            {{> "article/article-author"}}
+
+            {{!-- Article Content - partials/article/article-body.hbs --}}
+            {{> "article/article-body"}}
+        </div>
+        {{/post}}
+
+        {{!-- Sidebar - partials/sidebar.hbs --}}
+        {{> "sidebar"}}
+    </div>
+</div>
+
+{{!-- Related Articles - partials/article/article-related.hbs --}}
+{{> "article/article-related"}}
